@@ -31,21 +31,8 @@ def dijkarta(graph, start):
                 min_cost = cost[i]
                 start = i
 
-    path = {k: [] for k in range(length)}
-    for i in range(length):
-        if is_visited[i]:
-            path[i].append(i)
-            j = i
-            while parent[j] != -1:
-                path[i].append(parent[j])
-                j = parent[j]
-            path[i].reverse()
-
-    return cost, path
+    return cost
 
 
 s = int(input('От какой вершины идти: '))
-cost, path = dijkarta(g, s)
-print(cost)
-for k, v in path.items():
-    print(k, v)
+print(dijkarta(g, s))
